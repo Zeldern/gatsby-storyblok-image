@@ -87,7 +87,7 @@ function getFluidGatsbyImage(image, args = {}, rotation = 0) {
   }, rotation)
 
   return {
-    base64: buildLowFiUrl(originalPath, { width: maxWidth, height: maxHeight, aspectRatio: desiredAspectRatio }),
+    base64: buildLowFiUrl(originalPath, { width: maxWidth, height: maxHeight, aspectRatio: desiredAspectRatio }, rotation),
     aspectRatio: desiredAspectRatio,
     src,
     srcWebp,
