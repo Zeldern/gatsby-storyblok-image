@@ -31,6 +31,6 @@
     "@babel/core": "^7.0.0",
     "babel-preset-gatsby-package": "^0.1.4",
     "cross-env": "^5.0.5",
-    "microbundle": "^0.11.0"
+    "microbundle": "^0.15.0"
   }
 }
