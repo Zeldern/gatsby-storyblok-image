@@ -31,9 +31,9 @@ function buildImageUrl(originalPath, image, rotation) {
 
   // add original path at the end
   url += `/${originalPath}`
-  console.log(url);
+  //console.log(url);
   url = url.replace('filters:quality(100)', `filters:quality(100):rotate(${rotation})`);
-  console.log(url);
+  //console.log(url);
   return url
 }
 
