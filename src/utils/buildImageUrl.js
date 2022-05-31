@@ -31,12 +31,13 @@ function buildImageUrl(originalPath, image, rotation) {
 
   // add original path at the end
   url += `/${originalPath}`
-  
+  console.log(url);
   url = url.replace('filters:quality(100)', `filters:quality(100):rotate(${rotation})`);
+  console.log(url);
   return url
 }
 
-export function buildLowFiUrl(originalPath, {width, height, aspectRatio }, rotation) {
+export function buildLowFiUrl(originalPath, { width, height, aspectRatio }, rotation) {
   return buildImageUrl(originalPath, {
     width: (width / 3).toFixed(0),
     height: (height / 3).toFixed(0),
