@@ -32,7 +32,7 @@ function buildImageUrl(originalPath, image, rotation) {
   // add original path at the end
   url += `/${originalPath}`
   
-  url.replace('filters:quality(100)', `filters:quality(100):rotate(${rotation})`);
+  url = url.replace('filters:quality(100)', `filters:quality(100):rotate(${rotation})`);
   return url
 }
 
