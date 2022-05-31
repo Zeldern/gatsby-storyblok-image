@@ -1,7 +1,7 @@
 import { STORYBLOK_BASE_URL } from '../defaults'
 import { applyFilters } from './helpers'
 
-function buildImageUrl(originalPath, image) {
+function buildImageUrl(originalPath, image, rotation) {
   let { width, height, smartCrop, quality, format, fill } = image
 
   let [, extension] = originalPath.split('.')
@@ -31,16 +31,17 @@ function buildImageUrl(originalPath, image) {
 
   // add original path at the end
   url += `/${originalPath}`
-
+  
+  url.replace('filters:quality(100)', `filters:quality(100):rotate(${rotation})`;
   return url
 }
 
-export function buildLowFiUrl(originalPath, {width, height, aspectRatio }) {
+export function buildLowFiUrl(originalPath, {width, height, aspectRatio }, rotation) {
   return buildImageUrl(originalPath, {
     width: (width / 3).toFixed(0),
     height: (height / 3).toFixed(0),
     quality: 10
-  })
+  }, rotation)
 }
 
 export default buildImageUrl
