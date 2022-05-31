@@ -3,7 +3,7 @@ import buildUrl, { buildLowFiUrl } from './utils/buildImageUrl'
 import { isWebP } from './utils/helpers'
 import { sizeMultipliersFluid, defaultFluidOptions } from './defaults'
 
-function getFluidGatsbyImage(image, args = {}) {
+function getFluidGatsbyImage(image, args = {}, rotation = 0) {
   let imageProps = getBasicImageProps(image)
 
   if (!imageProps) {
@@ -59,13 +59,13 @@ function getFluidGatsbyImage(image, args = {}) {
         ...options,
         ...size,
         ...{ format: 'webp' }
-      })
+      }, rotation)
 
       let baseUrl = buildUrl(originalPath, {
         ...options,
         ...size,
         ...{ format: forceConvert }
-      })
+      }, rotation)
 
       acc.webp.push(`${webpUrl} ${currentWidth}w`)
       acc.base.push(`${baseUrl} ${currentWidth}w`)
@@ -78,13 +78,13 @@ function getFluidGatsbyImage(image, args = {}) {
     ...options,
     ...imgSize,
     ...{ format: forceConvert }
-  })
+  }, rotation)
 
   let srcWebp = buildUrl(originalPath, {
     ...options,
     ...imgSize,
     ...{ format: 'webp' }
-  })
+  }, rotation)
 
   return {
     base64: buildLowFiUrl(originalPath, { width: maxWidth, height: maxHeight, aspectRatio: desiredAspectRatio }),
